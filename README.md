@@ -106,7 +106,7 @@ This project includes several visualizations to help interpret the performance a
 
 ### 1. Category-wise Accuracy
 <p align="center">
-  <img src="results/category_accuracy.png" alt="Category Accuracy" width="500"/>
+  <img src="results/category_accuracy.png" alt="Category Accuracy" width="650"/>
 </p>
 This bar chart shows the accuracy for each test category (e.g., Cry-NoNoise-Music, NoCry-NoNoise-Music, etc.). Each bar represents the proportion of correctly classified files in that category. In the current results, all categories achieve 100% accuracy, indicating robust and balanced performance across different audio conditions.
 
@@ -123,13 +123,13 @@ These 3D scatter plots visualize the distribution of audio samples in different 
 
 ### 3. Feature Distributions
 <p align="center">
-  <img src="results/feature_distributions.png" alt="Feature Distributions" width="600"/>
+  <img src="results/feature_distributions.png" alt="Feature Distributions" width="780"/>
 </p>
 This grid of histograms and density plots shows the distribution of key features for both cry and non-cry samples. Each subplot compares the values for cries (blue) and non-cries (orange), with vertical lines indicating decision thresholds where relevant. These plots help you understand which features are most discriminative and how well the chosen thresholds separate the classes.
 
 ### 4. Feature Importance
 <p align="center">
-  <img src="results/feature_importance.png" alt="Feature Importance" width="400"/>
+  <img src="results/feature_importance.png" alt="Feature Importance" width="520"/>
 </p>
 This bar chart shows the relative importance (weight) of each feature in the cry detection decision. Features like energy ratio, rhythm regularity, amplitude modulation, and duration have the highest weights, indicating they are most influential in the rule-based logic. Noise and music ratios have lower weights but help reduce false positives in challenging cases.
 
