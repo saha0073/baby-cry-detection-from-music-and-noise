@@ -123,13 +123,13 @@ These 3D scatter plots visualize the distribution of audio samples in different 
 
 ### 3. Feature Distributions
 <p align="center">
-  <img src="results/feature_distributions.png" alt="Feature Distributions" width="780"/>
+  <img src="results/feature_distributions.png" alt="Feature Distributions" width="600"/>
 </p>
 This grid of histograms and density plots shows the distribution of key features for both cry and non-cry samples. Each subplot compares the values for cries (blue) and non-cries (orange), with vertical lines indicating decision thresholds where relevant. These plots help you understand which features are most discriminative and how well the chosen thresholds separate the classes.
 
 ### 4. Feature Importance
 <p align="center">
-  <img src="results/feature_importance.png" alt="Feature Importance" width="520"/>
+  <img src="results/feature_importance.png" alt="Feature Importance" width="570"/>
 </p>
 This bar chart shows the relative importance (weight) of each feature in the cry detection decision. Features like energy ratio, rhythm regularity, amplitude modulation, and duration have the highest weights, indicating they are most influential in the rule-based logic. Noise and music ratios have lower weights but help reduce false positives in challenging cases.
 
