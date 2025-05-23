@@ -27,7 +27,7 @@ python audio_preprocessing.py
 
 ### Step 2: Feature Extraction
 
-```bash
+```
 python feature_extraction.py
 ```
 - **feature_extraction.py**: Processes all `.wav` files in the `processed_audio/` directory (organized by category), extracts a comprehensive set of features (energy ratios in cry frequency bands, MFCCs, rhythm, amplitude modulation, music/noise separation, etc.), and saves them as JSON files in the `extracted_features/` directory. 
@@ -41,6 +41,10 @@ python main.py
 
 - **main.py**: Runs the full pipeline, applies the detector to all files, logs detailed results, and computes accuracy, precision, recall, and F1 score for each category. Results and detailed logs are saved in the `results/` directory, including per-file predictions and overall accuracy metrics.
 
+### Step 4: Visualize
+```bash
+python visualize_features.py
+```
 - **visualize_features.py**: Generates all the visualizations and plots (feature distributions, decision boundaries, feature importance, and category accuracy) from the results. Run this script after main.py to create a visual report in the `results/` directory.
 
 
