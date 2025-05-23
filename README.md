@@ -1,13 +1,6 @@
 # Baby Cry Detection System 
 
-This project implements a rule-based baby cry detection system using Python. The main problem addressed is to **detect baby cries in audio recordings even in the presence of music and noise**, without using any machine learning (ML) or deep learning (DL) models. The pipeline consists of audio preprocessing, feature extraction, and cry/no-cry decision logic based on rules and thresholds.
-
-## Project Structure
-
-- `audio_preprocessing.py`: Audio normalization and noise reduction.
-- `feature_extraction.py`: Extraction of a wide range of audio features (energy ratios, MFCCs, rhythm, music/noise separation, etc.).
-- `cry_detection.py`: Rule-based logic for cry/no-cry decision using extracted features.
-- `main.py`: Orchestrates the pipeline, evaluates accuracy, and logs results.
+This project implements a rule-based baby cry detection system using Python. The main problem addressed is to **detect baby cries in audio recordings in the presence of music and noise**, without using any machine learning (ML) or deep learning (DL) models. The pipeline consists of audio preprocessing, feature extraction, and cry/no-cry decision logic based on rules and thresholds. **The system achieves 100% accuracy on the provided test set.**
 
 ## Setup
 
@@ -25,37 +18,31 @@ pip install numpy librosa scipy soundfile
 ## Pipeline Usage
 
 ### Step 1: Audio Preprocessing
-Preprocess your raw audio files (e.g., `.ogg`) to normalize and reduce noise.
 
 ```bash
 python audio_preprocessing.py
 ```
-- By default, this script processes all `.ogg` files in a specified directory, normalizes them, applies noise reduction, and saves the processed files (as `.wav`) in an output directory.
-- You can modify the script to set your input/output directories as needed.
+- **audio_preprocessing.py**: Processes all `.ogg` files in a specified directory, normalizes them, applies noise reduction using spectral subtraction, and saves the processed files (as `.wav`) in an output directory. 
+
 
 ### Step 2: Feature Extraction
-Extract features from the preprocessed audio files.
 
 ```bash
 python feature_extraction.py
 ```
-- This script processes all `.wav` files in the `processed_audio/` directory (organized by category), extracts a comprehensive set of features, and saves them as JSON files in the `extracted_features/` directory.
+- **feature_extraction.py**: Processes all `.wav` files in the `processed_audio/` directory (organized by category), extracts a comprehensive set of features (energy ratios in cry frequency bands, MFCCs, rhythm, amplitude modulation, music/noise separation, etc.), and saves them as JSON files in the `extracted_features/` directory. 
 
 ### Step 3: Cry Detection & Evaluation
-Run the main evaluation pipeline to apply the rule-based cry detection logic and compute accuracy metrics.
 
 ```bash
 python main.py
 ```
-- This script loads the extracted features, applies the cry detection rules (from `cry_detection.py`), and evaluates performance across different categories.
-- Results and detailed logs are saved in the `results/` directory, including per-file predictions and overall accuracy metrics.
+- **cry_detection.py**: (no need to run python cry_detection.py, it gets called from main.py) Implements a `CryDetector` class that loads thresholds, analyzes features, and applies a set of hand-crafted rules to decide if a segment contains a cry.
 
-## How It Works
+- **main.py**: Runs the full pipeline, applies the detector to all files, logs detailed results, and computes accuracy, precision, recall, and F1 score for each category. Results and detailed logs are saved in the `results/` directory, including per-file predictions and overall accuracy metrics.
 
-- **audio_preprocessing.py**: Loads audio, converts to mono, normalizes amplitude, and applies basic noise reduction using spectral subtraction.
-- **feature_extraction.py**: Extracts a wide range of features (energy ratios in cry frequency bands, MFCCs, rhythm, amplitude modulation, music/noise separation, etc.) and saves them for each file.
-- **cry_detection.py**: Implements a `CryDetector` class that loads thresholds, analyzes features, and applies a set of hand-crafted rules to decide if a segment contains a cry.
-- **main.py**: Runs the full pipeline, applies the detector to all files, logs detailed results, and computes accuracy, precision, recall, and F1 score for each category.
+- **visualize_features.py**: Generates all the visualizations and plots (feature distributions, decision boundaries, feature importance, and category accuracy) from the results. Run this script after main.py to create a visual report in the `results/` directory.
+
 
 
 ## Results and Accuracy Metrics
