@@ -107,10 +107,11 @@ This bar chart shows the accuracy for each test category (e.g., Cry-NoNoise-Musi
   <img src="results/decision_boundaries_2.png" alt="Decision Boundaries 2" width="350"/>
   <img src="results/decision_boundaries_3.png" alt="Decision Boundaries 3" width="350"/>
 </p>
-These 3D scatter plots visualize the distribution of audio samples in different feature spaces:
-- **Decision Boundaries 1:** Plots Energy Ratio Main, Rhythm Regularity, and Amplitude Modulation. Red dots are correctly classified cries, blue crosses are correctly classified non-cries. This helps visualize how the rule-based boundaries separate the two classes.
-- **Decision Boundaries 2:** Plots Energy Ratio Main, Amplitude Modulation, and Music Ratio. This view highlights how music content and amplitude modulation interact in the decision process.
-- **Decision Boundaries 3:** Plots Music Ratio, Noise Ratio, and Amplitude Modulation. This helps to see how the system distinguishes between music, noise, and cry signals.
+These 3D scatter plots visualize the distribution of audio samples in different feature spaces:  
+
+- **Decision Boundaries 1:** Plots Energy Ratio Main, Rhythm Regularity, and Amplitude Modulation. Red dots are correctly classified cries, blue crosses are correctly classified non-cries. This helps visualize how the rule-based boundaries separate the two classes.  
+- **Decision Boundaries 2:** Plots Energy Ratio Main, Amplitude Modulation, and Music Ratio. This view highlights how music content and amplitude modulation interact in the decision process.  
+- **Decision Boundaries 3:** Plots Music Ratio, Noise Ratio, and Amplitude Modulation. This helps to see how the system distinguishes between music, noise, and cry signals.  
 
 ### 3. Feature Distributions
 <p align="center">
