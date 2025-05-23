@@ -1,6 +1,6 @@
-# Baby Cry Detection System (Rule-Based)
+# Baby Cry Detection System 
 
-This project implements a rule-based baby cry detection system using Python. The pipeline consists of audio preprocessing, feature extraction, and cry/no-cry decision logic based on hand-crafted rules and thresholds.
+This project implements a rule-based baby cry detection system using Python. The main problem addressed is to **detect baby cries in audio recordings even in the presence of music and noise**, without using any machine learning (ML) or deep learning (DL) models. The pipeline consists of audio preprocessing, feature extraction, and cry/no-cry decision logic based on rules and thresholds.
 
 ## Project Structure
 
@@ -13,8 +13,8 @@ This project implements a rule-based baby cry detection system using Python. The
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
-cd <repo-directory>
+git clone https://github.com/saha0073/cry-detection-from-music-and-noise
+cd cry-detection-from-music-and-noise
 ```
 
 Install dependencies (python version used 3.12):
@@ -58,14 +58,36 @@ python main.py
 - **main.py**: Runs the full pipeline, applies the detector to all files, logs detailed results, and computes accuracy, precision, recall, and F1 score for each category.
 
 
+## Results and Accuracy Metrics
+
+The accuracy metrics for the cry detection system are stored in `results/accuracy_metrics.json`. This file contains the overall performance metrics (accuracy, precision, recall, F1 score) and category-wise results. For example, the system achieves an overall accuracy of 100%, with 100% precision and recall, indicating robust performance across different categories (e.g., Cry-NoNoise-Music, NoCry-NoNoise-Music, etc.).
+
+**accuracy_metrics.json:**
+```json
+{
+    "total_files": 20,
+    "true_positives": 12,
+    "true_negatives": 8,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "category_results": {
+        "Cry-NoNoise-Music": {"correct": 4, "total": 4},
+        "NoCry-NoNoise-Music": {"correct": 4, "total": 4},
+        "Cry-NoNoise-NoMusic": {"correct": 4, "total": 4},
+        "Cry-Noise-NoMusic": {"correct": 4, "total": 4},
+        "NoCry-Noise-NoMusic": {"correct": 4, "total": 4}
+    }
+}
+```
+
 ## Further Improvements
 
 - While the current rule-based system is lightweight and suitable for edge devices, and getting 100% accuracy, this may not generalize to all real-world cases.
 - For higher accuracy, consider transitioning to a machine learning or deep learning approach. Lightweight DNN models, such as MobileNetV3 and EfficientNet, are available for audio classification and could be explored for deployment on edge devices.
-
-## Results and Accuracy Metrics
-
-The accuracy metrics for the cry detection system are stored in `results/accuracy_metrics.json`. This file contains the overall performance metrics (accuracy, precision, recall, F1 score) and category-wise results. For example, the system achieves an overall accuracy of 100%, with high precision and recall, indicating robust performance across different categories (e.g., Cry-NoNoise-Music, NoCry-NoNoise-Music, etc.).
 
 ## Features and Decision Boundaries
 
@@ -80,16 +102,16 @@ The decision boundaries are defined by thresholds that are either calculated fro
 
 ## Visualizations and Interpretation
 
-This project includes several visualizations to help interpret the performance and behavior of the cry detection system. You can find these plots in the repository (replace the placeholder links with your actual image paths after upload):
+This project includes several visualizations to help interpret the performance and behavior of the cry detection system. You can find these plots in the `results/` folder:
 
 ### 1. Category-wise Accuracy
-![Category Accuracy](category_accuracy.png)
+![Category Accuracy](results/category_accuracy.png)
 This bar chart shows the accuracy for each test category (e.g., Cry-NoNoise-Music, NoCry-NoNoise-Music, etc.). Each bar represents the proportion of correctly classified files in that category. In the current results, all categories achieve 100% accuracy, indicating robust and balanced performance across different audio conditions.
 
 ### 2. Decision Boundaries in Feature Space
-- ![Decision Boundaries 1](decision_boundaries_1.png)
-- ![Decision Boundaries 2](decision_boundaries_2.png)
-- ![Decision Boundaries 3](decision_boundaries_3.png)
+- ![Decision Boundaries 1](results/decision_boundaries_1.png)
+- ![Decision Boundaries 2](results/decision_boundaries_2.png)
+- ![Decision Boundaries 3](results/decision_boundaries_3.png)
 
 These 3D scatter plots visualize the distribution of audio samples in different feature spaces:
 - **Decision Boundaries 1:** Plots Energy Ratio Main, Rhythm Regularity, and Amplitude Modulation. Red dots are correctly classified cries, blue crosses are correctly classified non-cries. This helps visualize how the rule-based boundaries separate the two classes.
@@ -97,11 +119,11 @@ These 3D scatter plots visualize the distribution of audio samples in different 
 - **Decision Boundaries 3:** Plots Music Ratio, Noise Ratio, and Amplitude Modulation. This helps to see how the system distinguishes between music, noise, and cry signals.
 
 ### 3. Feature Distributions
-![Feature Distributions](feature_distributions.png)
+![Feature Distributions](results/feature_distributions.png)
 This grid of histograms and density plots shows the distribution of key features for both cry and non-cry samples. Each subplot compares the values for cries (blue) and non-cries (orange), with vertical lines indicating decision thresholds where relevant. These plots help you understand which features are most discriminative and how well the chosen thresholds separate the classes.
 
 ### 4. Feature Importance
-![Feature Importance](feature_importance.png)
+![Feature Importance](results/feature_importance.png)
 This bar chart shows the relative importance (weight) of each feature in the cry detection decision. Features like energy ratio, rhythm regularity, amplitude modulation, and duration have the highest weights, indicating they are most influential in the rule-based logic. Noise and music ratios have lower weights but help reduce false positives in challenging cases.
 
 These visualizations provide insight into the strengths and limitations of the current rule-based approach and can guide further improvements or the transition to a machine learning model.
