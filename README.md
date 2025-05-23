@@ -105,25 +105,32 @@ The decision boundaries are defined by thresholds that are either calculated fro
 This project includes several visualizations to help interpret the performance and behavior of the cry detection system. You can find these plots in the `results/` folder:
 
 ### 1. Category-wise Accuracy
-![Category Accuracy](results/category_accuracy.png)
+<p align="center">
+  <img src="results/category_accuracy.png" alt="Category Accuracy" width="500"/>
+</p>
 This bar chart shows the accuracy for each test category (e.g., Cry-NoNoise-Music, NoCry-NoNoise-Music, etc.). Each bar represents the proportion of correctly classified files in that category. In the current results, all categories achieve 100% accuracy, indicating robust and balanced performance across different audio conditions.
 
 ### 2. Decision Boundaries in Feature Space
-- ![Decision Boundaries 1](results/decision_boundaries_1.png)
-- ![Decision Boundaries 2](results/decision_boundaries_2.png)
-- ![Decision Boundaries 3](results/decision_boundaries_3.png)
-
+<p align="center">
+  <img src="results/decision_boundaries_1.png" alt="Decision Boundaries 1" width="350"/>
+  <img src="results/decision_boundaries_2.png" alt="Decision Boundaries 2" width="350"/>
+  <img src="results/decision_boundaries_3.png" alt="Decision Boundaries 3" width="350"/>
+</p>
 These 3D scatter plots visualize the distribution of audio samples in different feature spaces:
 - **Decision Boundaries 1:** Plots Energy Ratio Main, Rhythm Regularity, and Amplitude Modulation. Red dots are correctly classified cries, blue crosses are correctly classified non-cries. This helps visualize how the rule-based boundaries separate the two classes.
 - **Decision Boundaries 2:** Plots Energy Ratio Main, Amplitude Modulation, and Music Ratio. This view highlights how music content and amplitude modulation interact in the decision process.
 - **Decision Boundaries 3:** Plots Music Ratio, Noise Ratio, and Amplitude Modulation. This helps to see how the system distinguishes between music, noise, and cry signals.
 
 ### 3. Feature Distributions
-![Feature Distributions](results/feature_distributions.png)
+<p align="center">
+  <img src="results/feature_distributions.png" alt="Feature Distributions" width="600"/>
+</p>
 This grid of histograms and density plots shows the distribution of key features for both cry and non-cry samples. Each subplot compares the values for cries (blue) and non-cries (orange), with vertical lines indicating decision thresholds where relevant. These plots help you understand which features are most discriminative and how well the chosen thresholds separate the classes.
 
 ### 4. Feature Importance
-![Feature Importance](results/feature_importance.png)
+<p align="center">
+  <img src="results/feature_importance.png" alt="Feature Importance" width="400"/>
+</p>
 This bar chart shows the relative importance (weight) of each feature in the cry detection decision. Features like energy ratio, rhythm regularity, amplitude modulation, and duration have the highest weights, indicating they are most influential in the rule-based logic. Noise and music ratios have lower weights but help reduce false positives in challenging cases.
 
 These visualizations provide insight into the strengths and limitations of the current rule-based approach and can guide further improvements or the transition to a machine learning model.
