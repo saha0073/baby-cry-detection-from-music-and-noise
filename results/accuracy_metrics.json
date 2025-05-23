@@ -1,0 +1,33 @@
+{
+    "total_files": 20,
+    "true_positives": 12,
+    "true_negatives": 8,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "category_results": {
+        "Cry-NoNoise-Music": {
+            "correct": 4,
+            "total": 4
+        },
+        "NoCry-NoNoise-Music": {
+            "correct": 4,
+            "total": 4
+        },
+        "Cry-NoNoise-NoMusic": {
+            "correct": 4,
+            "total": 4
+        },
+        "Cry-Noise-NoMusic": {
+            "correct": 4,
+            "total": 4
+        },
+        "NoCry-Noise-NoMusic": {
+            "correct": 4,
+            "total": 4
+        }
+    }
+}
